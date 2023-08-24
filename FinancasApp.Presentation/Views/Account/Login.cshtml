@@ -1,0 +1,50 @@
+﻿@{
+    //definindo o layout mestre desta página
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">
+                    <h3>Acessar Sistema</h3>
+                    <p>Entre com suas credenciais de acesso</p>
+                </div>
+                <hr/>
+
+                <form>
+
+                    <div class="mb-2">
+                        <label>Email de acesso:</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+
+                    <div class="mb-2">
+                        <label>Senha de acesso:</label>
+                        <input type="password" class="form-control"/>
+                    </div>
+
+                    <div class="mb-2 text-end">
+                        <a href="/Account/ForgotPassword">
+                            Esqueci minha senha!
+                        </a>
+                    </div>
+
+                    <div class="mb-2 d-grid">
+                        <input type="submit" class="btn btn-primary"
+                            value="Acessar Sistema"/>
+                    </div>
+
+                    <div class="mb-2 d-grid">
+                        <a href="/Account/Register" class="btn btn-light">
+                            Não possui conta? <strong>Cadastre-se aqui!</strong>
+                        </a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
