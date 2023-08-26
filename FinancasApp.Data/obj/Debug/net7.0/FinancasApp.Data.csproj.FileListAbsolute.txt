@@ -1,0 +1,14 @@
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\bin\Debug\net7.0\FinancasApp.Data.deps.json
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\bin\Debug\net7.0\FinancasApp.Data.runtimeconfig.json
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\bin\Debug\net7.0\FinancasApp.Data.dll
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\bin\Debug\net7.0\FinancasApp.Data.pdb
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.csproj.AssemblyReference.cache
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.AssemblyInfoInputs.cache
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.AssemblyInfo.cs
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.csproj.CoreCompileInputs.cache
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.dll
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\refint\FinancasApp.Data.dll
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.pdb
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\FinancasApp.Data.genruntimeconfig.cache
+C:\coti_csharp_sqs\FinancasApp\FinancasApp.Data\obj\Debug\net7.0\ref\FinancasApp.Data.dll
