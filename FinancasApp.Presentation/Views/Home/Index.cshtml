@@ -1,0 +1,125 @@
+﻿@model FinancasApp.Presentation.Models.DashboardViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h4>Dashboard Principal</h4>
+            <p>Seja bem vindo ao sistema de controle financeiro.</p>
+
+            @using (Html.BeginForm())
+            {
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <label>Data de início:</label>
+                        @Html.TextBoxFor(model => model.DataInicio, "{0:yyyy-MM-dd}",
+                            new { @class = "form-control", @type = "date" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.DataInicio)
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Data de término:</label>
+                        @Html.TextBoxFor(model => model.DataFim, "{0:yyyy-MM-dd}",
+                            new { @class = "form-control", @type = "date" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.DataFim)
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" class="btn btn-success mt-4" value="Pesquisar contas" />
+                    </div>
+                </div>
+            }
+
+            <div class="row mt-2">
+                <div class="col">
+                    <div id="donutChart"></div>
+                </div>
+                <div class="col">
+                    <div id="columnChart"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script>
+        var donutData = [];
+        var columnData = { categories: [], data: [] }
+    </script>
+
+    @foreach(var item in Model.DonutChart)
+    {
+        <script>
+            donutData.push({
+                name: '@item.Name',
+                y: @item.Data
+            })
+        </script>
+    }
+
+    @foreach(var item in Model.ColumnChart)
+    {
+        <script>
+            columnData.categories.push('@item.Name');
+            columnData.data.push(@item.Data);
+        </script>
+    }
+
+    <script>
+
+        // Configuração do primeiro gráfico (donut)
+        Highcharts.chart('donutChart', {
+            chart: {
+                type: 'pie',
+            },
+            title: {
+                text: 'Comparativo de Contas a Pagar e Contas a Receber'
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: '50%',
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: {point.percentage:.1f}%'
+                    }
+                }
+            },
+            series: [{
+                name: 'Valor',
+                data: donutData
+            }]
+        });
+
+        // Configuração do segundo gráfico (colunas)
+        Highcharts.chart('columnChart', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Total de Contas por Categoria'
+            },
+            xAxis: {
+                categories: columnData.categories
+            },
+            yAxis: {
+                title: {
+                    text: 'Valor'
+                }
+            },
+            series: [{
+                name: 'Valor',
+                data: columnData.data
+            }]
+        });
+    </script>
+}

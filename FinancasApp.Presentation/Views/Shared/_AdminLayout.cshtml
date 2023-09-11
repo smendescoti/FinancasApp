@@ -1,0 +1,107 @@
+﻿@using FinancasApp.Presentation.Models
+@using Newtonsoft.Json
+@{
+    //ler os dados do usuário autenticado contido no Cookie
+    var data = User.Identity.Name;
+    //deserializando os dados de JSON para objeto
+    var auth = JsonConvert.DeserializeObject<AuthenticationViewModel>(data);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de controle de finanças</title>
+
+    <!-- folha de estilos do bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- folha de estilos do JQuery DataTable -->
+    <link href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand text-light" href="#"><strong>FinancasApp</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="/Home/Index">Página inicial</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gerenciar contas a pagar e receber
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/Contas/Cadastro">Cadastrar contas</a></li>
+                            <li><a class="dropdown-item" href="/Contas/Consulta">Consultar contas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <strong>@auth.Nome</strong> - @auth.Email
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/Account/Logout">Sair do Sistema</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Sucesso!</strong> @TempData["MensagemSucesso"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    else if (TempData["MensagemAlerta"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Alerta!</strong> @TempData["MensagemAlerta"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    else if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Erro!</strong> @TempData["MensagemErro"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Área de conteudo do layout -->
+    @RenderBody()
+
+    <!-- biblioteca JS do bootstrap -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <!-- biblioteca JS do JQuery (Link por CDN) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- biblioteca JS do JQuery DataTables (link por CDN) -->
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <!-- seção para inserirmos conteudo javascript -->
+    @RenderSection("scripts", required: false)
+
+    <!-- configurar o datatable -->
+    <script>
+        $(document).ready(function(){
+            $(".table").DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/pt-BR.json',
+                }
+            });
+        })
+    </script>
+
+</body>
+</html>

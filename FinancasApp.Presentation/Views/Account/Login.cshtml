@@ -1,4 +1,7 @@
-﻿@{
+﻿@* Definindo o modelo de dados da páginas *@
+@model FinancasApp.Presentation.Models.AccountLoginViewModel
+
+@{
     //definindo o layout mestre desta página
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
@@ -13,16 +16,22 @@
                 </div>
                 <hr/>
 
-                <form>
-
+                @using(Html.BeginForm())
+                {
                     <div class="mb-2">
                         <label>Email de acesso:</label>
-                        <input type="text" class="form-control"/>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
                     </div>
 
                     <div class="mb-2">
                         <label>Senha de acesso:</label>
-                        <input type="password" class="form-control"/>
+                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Senha)
+                        </div>
                     </div>
 
                     <div class="mb-2 text-end">
@@ -42,7 +51,7 @@
                         </a>
                     </div>
 
-                </form>
+                }
 
             </div>
         </div>

@@ -28,10 +28,14 @@ namespace FinancasApp.Data.Contexts
         {
             //adicionar cada classe de mapeamento do projeto
             modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new CategoriaMap());
+            modelBuilder.ApplyConfiguration(new ContaMap());
         }
 
         //REGRA 4: Para cada entidade do projeto declare
         //uma propriedade do tipo DbSet
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Conta> Conta { get; set; }
     }
 }

@@ -28,6 +28,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/coti_csharp_sqs/FinancasApp/FinancasApp.Presentation/Views/Contas/Cadastro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFzXENhZGFzdHJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/coti_csharp_sqs/FinancasApp/FinancasApp.Presentation/Views/Contas/Consulta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFzXENvbnN1bHRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/coti_csharp_sqs/FinancasApp/FinancasApp.Presentation/Views/Contas/Edicao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFzXEVkaWNhby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/coti_csharp_sqs/FinancasApp/FinancasApp.Presentation/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/coti_csharp_sqs/FinancasApp/FinancasApp.Presentation/Views/Shared/_AccountLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BY2NvdW50TGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/coti_csharp_sqs/FinancasApp/FinancasApp.Presentation/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

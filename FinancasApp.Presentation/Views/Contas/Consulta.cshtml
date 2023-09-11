@@ -1,0 +1,86 @@
+﻿@* Definindo a classe de modelo de dados da página *@
+@model FinancasApp.Presentation.Models.ContasConsultaViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h4>Consulta de contas</h4>
+            <p>Pesquise as contas dentro do período de datas desejado:</p>
+            <div class="mt-2">
+
+                @using(Html.BeginForm())
+                {
+                    <div class="row mb-2">
+                        <div class="col-md-3">
+                            <label>Data de início:</label>
+                            @Html.TextBoxFor(model => model.DataInicio, "{0:yyyy-MM-dd}",
+                                new { @class = "form-control", @type = "date" })
+                            <div class="text-danger">
+                                @Html.ValidationMessageFor(model => model.DataInicio)
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Data de término:</label>
+                            @Html.TextBoxFor(model => model.DataFim, "{0:yyyy-MM-dd}",
+                                new { @class = "form-control", @type = "date" })
+                            <div class="text-danger">
+                                @Html.ValidationMessageFor(model => model.DataFim)
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" class="btn btn-success mt-4" value="Pesquisar contas"/>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            @* Verificando se há contas para serem exibidas *@
+            @if(Model != null && Model.ListagemContas != null)
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Tipo</th>
+                                <th>Categoria</th>
+                                <th>Nome da conta</th>
+                                <th>Operações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ListagemContas)
+                            {
+                                <tr>
+                                    <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.Valor.ToString("c")</td>
+                                    <td>@item.Tipo</td>
+                                    <td>@item.Categoria.Nome</td>
+                                    <td>@item.Nome</td>
+                                    <td>
+                                        <a href="/Contas/Edicao/@item.Id" 
+                                            class="btn btn-sm btn-outline-primary">
+                                            Editar
+                                        </a>
+                                        <a href="/Contas/Exclusao/@item.Id"
+                                            onclick="return confirm('Deseja excluir a conta selecionada?');"
+                                            class="btn btn-sm btn-outline-danger">
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
